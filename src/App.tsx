@@ -19,7 +19,7 @@ export default function App() {
   return (
     <div className="app">
       <h3>{advice}</h3>
-      <button onClick={getAdvice} disabled={isLoading}>{"Get advice"}</button>
+      <button onClick={getAdvice} disabled={isLoading}>{"Get another advice"}</button>
     </div>
   );
 }
