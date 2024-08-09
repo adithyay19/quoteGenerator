@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 
 export default function App() {
   const [advice, setAdvice] = useState("");
-  const [count, setCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function getAdvice() {
+    setIsLoading(true);
     const data = await fetch("https://api.adviceslip.com/advice");
     const response = await data.json();
-    console.log(response.slip.advice);
+    setIsLoading(false);
     setAdvice(response.slip.advice);
-    setCount(count + 1);
   }
 
   useEffect(function () {
@@ -19,7 +19,7 @@ export default function App() {
   return (
     <div className="app">
       <h3>{advice}</h3>
-      <button onClick={getAdvice}>Get another advice</button>
+      <button onClick={getAdvice} disabled={isLoading}>{"Get advice"}</button>
     </div>
   );
 }
