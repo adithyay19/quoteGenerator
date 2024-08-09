@@ -17,7 +17,7 @@ export default function App() {
   }, []);
 
   return (
-    <div>
+    <div className="app">
       <h3>{advice}</h3>
       <button onClick={getAdvice}>Get another advice</button>
     </div>
